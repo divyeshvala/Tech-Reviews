@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div style="background-image: url({% static 'img/home2.jpg' %}); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+        <br><br><br><br>
+        <h1 class="text-center" style="color:aliceblue"> Tech Reviews</h1>
+        <h4 class="text-center" style="color:aliceblue"> Reviews of all tech products</h4>
+        <br><br><br><br>
+</div>
+
+<div class="container-fluid">
+	<div class="row jumbotron">
+		<div class="text-center">
+			<p class="lead">
+                Welcome to our Tech Reviews website. Here you can check reviews for various technical products
+                as well as write reviews for same. Check it out.
+			</p>
+		</div>
+	</div>
+</div>
+
+<!--- Products -->
+<div class="container-fluid padding">
+	<div class="row welcome text-center">
+		<div class="col-12">
+			<h2 class="display-4"> Products </h2>
+		</div>
+		<hr>
+	</div>
+</div>
+
+<div class="container-fluid padding">
+    <div class="row padding">
+    {% for product in products %}
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="{{ product.image.url }}" height="350" >
+                <div class="card-body">
+                    <h4 class="card-title text-center"> {{ product.name }} </h4>
+                    <p class="text-center"> {{ product.company }} </p>
+                    <p class="card-text text-center"> {{ product.desc }} </p>
+                    <a href="reviews/{{ product.id }}" class="btn btn-outline-secondary"> See Reviews </a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

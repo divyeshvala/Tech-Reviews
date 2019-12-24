@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'header_files.html' %}
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title> Reviews </title>
+</head>
+<body style="background-color: rgb(231, 233, 233);">
+    
+    {% include 'navbar.html' %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <br><br><br>
+            <div class="w3-container w3-green">
+                <h3>Rating : {{ avg_rating }}</h3>
+            </div>
+            <h3>  </h3>
+            <br><br><br><br>
+
+            <div class="w3-container w3-blue">
+                <h2 class="text-center"> Write Review</h2>
+            </div>
+    `        <form class="w3-container w3-card-4" action="{{ p_id }}/write" method="POST"> {% csrf_token %}
+                <h3> Rate the product </h3>
+                <select class="w3-select" name="stars">
+                  <option value="" disabled selected>Select</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <br><br>
+                <p><textarea class="w3-input" type="text" name="text" placeholder="your reviews for product" > </textarea> </p>
+                <p><button class="w3-btn w3-teal">Submit</button></p>
+              </form>
+            <div> 
+                {% for message in messages %}
+                    <h3 style="color: darkred;"> {{ message }} </h3>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-8">
+            {% for review in reviews %}
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title text-center w3-text-blue"> {{ review.author }} </h4>
+                            <p class="text-center"> {{ review.time }} </p>
+                            <p class="text-center"> Rating : {{ review.stars }} </p>
+                            <p class="card-text text-center"> {{ review.text }} </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
