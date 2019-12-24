@@ -31,13 +31,18 @@ It is project made using django framework. Basically it is website where users c
     }
     }
 
-#### 6. Start server
+#### 6. Now execute following commands on command prompt
+
+    python manage.py makemigrations
+    python manage.py migrate
+
+#### 7. Start server
      
     python manage.py runserver
    
-#### 7. Now search http://127.0.0.1:8000/  in the browser.   
+#### 8. Now search http://127.0.0.1:8000/  in the browser.   
+Right now only admin can add new product. So you have to add products and those products will be displayed on home screen.
+#### 9. To add product 
 
-### There is one superuser account by default. Go to http://127.0.0.1:8000/admin
-        
-        username : coder22
-        password : techreviews22        
+        python manage.py createsuperuser
+Now go to Go to http://127.0.0.1:8000/admin and login to add new products.       
