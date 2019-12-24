@@ -1,5 +1,4 @@
 # Tech-Reviews 
-=============================
 
 ## About
 It is project made using django framework. Basically it is website where users can check tech products reviews and they can also write reviews for the products. Anyone can use the source code. You can also make changes where necessary and add new files to expand the project.
